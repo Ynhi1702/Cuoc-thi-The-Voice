@@ -1,2 +1,2 @@
 # Cuoc-thi-The-Voice
-The Voice thoả sức đam mê
+The Voice thoả sức đam mê với âm nhạc
