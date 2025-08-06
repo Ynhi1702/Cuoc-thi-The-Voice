@@ -1,83 +1,174 @@
-/* Main CSS for The Voice Landing Page (Based on HTML5 UP Eventually) */
 body, html {
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	font-family: 'Source Sans Pro', Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    background: #1a1a1a;
 }
 #bg {
-	position: fixed;
-	top: 0; left: 0;
-	width: 100vw; height: 100vh;
-	background: url('../images/bg.jpg') no-repeat center center fixed;
-	background-size: cover;
-	z-index: -1;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: linear-gradient(120deg, #d4145a 0%, #fbb03b 100%), url('../images/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1;
+    filter: brightness(0.75) blur(1.2px);
 }
 #main {
-	position: relative;
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 #header {
-	background: rgba(255,255,255,0.9);
-	padding: 40px 30px 30px 30px;
-	border-radius: 20px;
-	box-shadow: 0 8px 32px 0 rgba(31,38,135,0.2);
-	text-align: center;
-	max-width: 420px;
-	width: 100%;
+    background: rgba(30,30,30,0.97);
+    padding: 42px 34px 28px 34px;
+    border-radius: 28px;
+    box-shadow: 0 10px 32px 0 rgba(120,20,60,0.15);
+    text-align: center;
+    max-width: 460px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    position: relative;
+}
+.thevoice-logo {
+    width: 120px;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 6px 18px #d4145aaa);
+    animation: pulseLogo 1.7s infinite alternate;
+}
+@keyframes pulseLogo {
+    from { transform: scale(1);}
+    to { transform: scale(1.07);}
 }
 #header h1 {
-	margin-bottom: 18px;
-	color: #e74c3c;
-	font-size: 2.5em;
-	font-weight: 700;
-	letter-spacing: 1px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.6em;
+    font-weight: 900;
+    margin-bottom: 12px;
+    text-shadow: 1px 5px 16px #d4145a55, 0 1px 0 #000;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
-#header p {
-	color: #555;
-	font-size: 1.2em;
-	margin-bottom: 20px;
+.desc {
+    color: #ffd6e6;
+    font-size: 1.15em;
+    margin-bottom: 18px;
+    font-weight: 500;
+    line-height: 1.45;
+}
+.countdown-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 22px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+.countdown-block {
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 14px 12px 10px 12px;
+    min-width: 140px;
+    flex: 1 1 140px;
+}
+.countdown-block h3 {
+    color: #fbb03b;
+    font-size: 1em;
+    margin: 0 0 6px 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.countdown-timer {
+    font-family: 'Montserrat', monospace;
+    font-size: 1.22em;
+    color: #fff;
+    background: rgba(212,20,90,0.12);
+    border-radius: 8px;
+    padding: 9px 0;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    box-shadow: 0 1px 6px #d4145a33;
+}
+#registerForm {
+    margin-top: 16px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#registerForm input[type="text"], #registerForm input[type="email"] {
+    width: 100%;
+    padding: 12px 10px;
+    border-radius: 12px;
+    border: 1px solid #d4145a55;
+    font-size: 1em;
+    background: rgba(255,255,255,0.91);
+    margin-top: 2px;
+    margin-bottom: 2px;
+    transition: border 0.18s;
+}
+#registerForm input:focus {
+    border: 1.5px solid #fbb03b;
+    outline: none;
 }
 .button {
-	background-color: #e74c3c;
-	color: #fff;
-	border: none;
-	padding: 14px 38px;
-	border-radius: 30px;
-	font-size: 1.1em;
-	font-weight: bold;
-	cursor: pointer;
-	box-shadow: 0 4px 16px rgba(231,76,60,0.15);
-	transition: background 0.2s;
-	margin-top: 10px;
+    background: linear-gradient(90deg, #d4145a 0%, #fbb03b 90%);
+    color: #fff;
+    border: none;
+    padding: 14px 0;
+    border-radius: 32px;
+    font-size: 1.15em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    box-shadow: 0 8px 26px rgba(212,20,90,0.13);
+    cursor: pointer;
+    margin-top: 7px;
+    transition: background 0.19s, box-shadow 0.19s;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 .button:hover {
-	background-color: #c0392b;
+    background: linear-gradient(90deg, #fbb03b 0%, #d4145a 90%);
+    box-shadow: 0 2px 16px #fbb03b88;
 }
-input[type="text"], input[type="email"] {
-	width: 90%;
-	padding: 12px 10px;
-	margin: 8px 0;
-	border-radius: 10px;
-	border: 1px solid #ccc;
-	font-size: 1em;
+.register-message {
+    display: none;
+    margin-top: 18px;
+    background: #27ae60dd;
+    color: #fff;
+    padding: 14px 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.1em;
+    animation: fadeIn 0.6s;
+    box-shadow: 0 2px 10px #27ae6077;
+}
+@keyframes fadeIn {
+    from { opacity: 0;}
+    to { opacity: 1;}
 }
 #footer {
-	margin-top: 40px;
-	text-align: center;
-	color: #fff;
-	font-size: 1em;
-	background: rgba(231,76,60,0.55);
-	padding: 16px 0;
-	border-radius: 0 0 20px 20px;
+    margin-top: 28px;
+    text-align: center;
+    color: #fff;
+    font-size: 1.05em;
+    background: rgba(212,20,90,0.19);
+    padding: 16px 0 12px 0;
+    border-radius: 0 0 22px 22px;
+    letter-spacing: 1px;
 }
 @media (max-width: 600px) {
-	#header {
-		padding: 20px 10px;
-		max-width: 99%;
-	}
+    #header {
+        padding: 16px 4px 18px 4px;
+        max-width: 99%;
+    }
+    .thevoice-logo {
+        width: 80px;
+    }
+    .countdown-section {
+        flex-direction: column;
+        gap: 9px;
+    }
 }

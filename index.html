@@ -1,39 +1,51 @@
 <!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Cuộc thi The Voice</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
-		<!-- Background -->
-		<div id="bg"></div>
-
-		<!-- Main -->
-		<div id="main">
-			<header id="header">
-				<h1>Cuộc thi The Voice</h1>
-				<p>
-					Tìm kiếm các tài năng âm nhạc trên toàn quốc, mở ra cơ hội ca hát cho những người yêu thích ca hát, thỏa mình với đam mê.
-				</p>
-				<div id="countdown" style="font-size:2em;margin:20px 0;color:#e74c3c;"></div>
-				<form id="registerForm">
-					<input type="text" name="name" placeholder="Họ và tên thí sinh" required />
-					<input type="email" name="email" placeholder="Email liên hệ" required />
-					<input type="text" name="phone" placeholder="Số điện thoại" required />
-					<button type="submit" class="button">Đăng ký tham gia</button>
-				</form>
-				<div id="registerMessage" style="margin-top:20px;color:#27ae60;font-weight:bold;display:none;">
-					Đăng ký thành công! Chúng tôi đã nhận thông tin của bạn.
-				</div>
-			</header>
-			<footer id="footer">
-				<p>Đăng ký tham gia trước ngày 06/08/2026</p>
-			</footer>
-		</div>
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.countdown.min.js"></script>
-		<script src="assets/js/main.js"></script>
-	</body>
+<html lang="vi">
+<head>
+    <title>Cuộc thi The Voice</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+    <!-- Background -->
+    <div id="bg"></div>
+    <!-- Main -->
+    <div id="main">
+        <header id="header">
+            <img src="assets/images/thevoice.png" alt="The Voice" class="thevoice-logo" />
+            <h1>Cuộc thi The Voice</h1>
+            <p class="desc">
+                Tìm kiếm các tài năng âm nhạc trên toàn quốc,<br>
+                mở ra cơ hội ca hát cho những người yêu thích ca hát,<br>
+                thỏa mình với đam mê!
+            </p>
+            <div class="countdown-section">
+                <div class="countdown-block">
+                    <h3>Thời gian còn lại đăng ký</h3>
+                    <div id="countdown-register" class="countdown-timer"></div>
+                </div>
+                <div class="countdown-block">
+                    <h3>Thời gian đến sự kiện</h3>
+                    <div id="countdown-event" class="countdown-timer"></div>
+                </div>
+            </div>
+            <form id="registerForm" autocomplete="off">
+                <input type="text" name="name" placeholder="Họ và tên thí sinh" required />
+                <input type="email" name="email" placeholder="Email liên hệ" required />
+                <input type="text" name="phone" placeholder="Số điện thoại" required />
+                <button type="submit" class="button">Đăng ký tham gia</button>
+            </form>
+            <div id="registerMessage" class="register-message">
+                Đăng ký thành công! Chúng tôi đã nhận thông tin của bạn.
+            </div>
+        </header>
+        <footer id="footer">
+            <p><strong>Hạn đăng ký:</strong> 20/07/2026 &nbsp; | &nbsp; <strong>Ngày diễn ra sự kiện:</strong> 06/08/2026</p>
+        </footer>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.countdown.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
 </html>
