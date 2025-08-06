@@ -3,8 +3,138 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bài tập sự kiện - Đếm ngược đăng ký & thi</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Cuộc Thi Kiến Thức Mùa Hè 2026</title>
+<style>
+  /* Reset cơ bản */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  }
+  body {
+    background: linear-gradient(135deg, #ffe6f0 0%, #fff0f5 50%, #ffffff 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .container {
+    background: rgba(255, 240, 245, 0.9);
+    max-width: 800px;
+    width: 100%;
+    border-radius: 12px;
+    padding: 30px 40px;
+    box-shadow: 0 0 30px rgba(255, 182, 193, 0.5);
+    text-align: center;
+    color: #b33a5b;
+  }
+  header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    color: #d14769;
+    text-shadow: 0 0 8px #f8bbd0;
+  }
+  header p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #a8385f;
+  }
+  .countdowns {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .countdown-box {
+    background: rgba(255, 192, 203, 0.3);
+    border-radius: 15px;
+    padding: 20px 25px;
+    width: 300px;
+    box-shadow: 0 0 15px #f48fb1;
+    transition: box-shadow 0.3s ease;
+    color: #a62448;
+  }
+  .countdown-box:hover {
+    box-shadow: 0 0 25px #f06292;
+  }
+  .countdown-box h2 {
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: #c2185b;
+    text-shadow: 0 0 6px #f48fb1;
+  }
+  .countdown-timer {
+    font-size: 2rem;
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 2px;
+    color: #880e4f;
+  }
+  .register {
+    margin-bottom: 40px;
+  }
+  .register h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #ad1457;
+    text-shadow: 0 0 6px #f06292;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  input[type="text"], input[type="email"] {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #f8bbd0;
+    font-size: 1rem;
+    outline: none;
+  }
+  input[type="text"]:focus, input[type="email"]:focus {
+    box-shadow: 0 0 8px #f48fb1;
+    border-color: #f48fb1;
+  }
+  button {
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    background-color: #f06292;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px #ec407a;
+  }
+  button:hover {
+    background-color: #f8bbd0;
+    color: #880e4f;
+    box-shadow: 0 0 15px #f06292;
+  }
+  .image-section {
+    margin-top: 20px;
+  }
+  .image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #f48fb1;
+  }
+  footer p {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #ad1457;
+    text-shadow: 0 0 5px #f48fb1;
+  }
+</style>
+
 </head>
 <body>
   <div class="container">
@@ -16,12 +146,12 @@
     <section class="countdowns">
       <div class="countdown-box" id="registration-box">
         <h2>Thời gian đăng ký còn lại</h2>
-        <div id="registration-countdown" class="countdown-timer">Loading...</div>
+        <div id="registration-countdown" class="countdown-timer">Đang tải...</div>
       </div>
 
       <div class="countdown-box" id="exam-box">
         <h2>Thời gian đến ngày thi</h2>
-        <div id="exam-countdown" class="countdown-timer">Loading...</div>
+        <div id="exam-countdown" class="countdown-timer">Đang tải...</div>
       </div>
     </section>
 
@@ -35,7 +165,7 @@
     </section>
 
     <section class="image-section">
-      <img src="images/event-illustration.png" alt="Minh họa sự kiện" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvS3W5wOgDwS0qf6YcvOEiALVouKdPbojJZQ&s?auto=format&fit=crop&w=800&q=80" alt="Minh họa sự kiện" />
     </section>
 
     <footer>
@@ -43,6 +173,43 @@
     </footer>
   </div>
 
-  <script src="main.js"></script>
+  <script>
+    function countdown(id, targetDateStr) {
+      const countdownElem = document.getElementById(id);
+      const targetDate = new Date(targetDateStr);
+
+      function updateCountdown() {
+        const now = new Date();
+        const diff = targetDate - now;
+
+        if (diff <= 0) {
+          countdownElem.innerHTML = "Đã đến thời điểm!";
+          clearInterval(intervalId);
+          return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((diff / (1000 * 60)) % 60);
+        const seconds = Math.floor((diff / 1000) % 60);
+
+        countdownElem.innerHTML =
+          `${days} ngày ${hours.toString().padStart(2,'0')} giờ ` +
+          `${minutes.toString().padStart(2,'0')} phút ${seconds.toString().padStart(2,'0')} giây`;
+      }
+
+      updateCountdown();
+      const intervalId = setInterval(updateCountdown, 1000);
+    }
+
+    countdown('registration-countdown', '2026-07-20T23:59:59');
+    countdown('exam-countdown', '2026-08-10T08:00:00');
+
+    document.getElementById('register-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Cảm ơn bạn đã đăng ký tham gia!');
+      this.reset();
+    });
+  </script>
 </body>
 </html>
